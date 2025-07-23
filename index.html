@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ma Boutique Express</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Ma Boutique Express</h1>
+  <p class="subtitle">Créé par Landry de Pierre</p>
+  <nav>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="accueil" class="message-accueil">
+  <h2>Bienvenue sur Ma Boutique Express !</h2>
+  <p>Découvrez nos produits tendances à petits prix, livrés rapidement.</p>
+</section>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+</div>
+
+<section id="produits">
+  <h2>Nos Produits <span id="productCount"></span></h2>
+
+  <div class="produits-container">
+
+    <!-- Produit 1 -->
+    <div class="produit">
+      <img src="https://m.media-amazon.com/images/I/71oypJv-2BL._AC_SY450_.jpg" alt="Montre Connectée Femme">
+      <h3>Montre Connectée Femme</h3>
+      <p>Écran tactile, suivi santé, compatible Android/iOS.</p>
+      <a href="https://www.amazon.ca/dp/B0B6T69ZC2?tag=oc2-20" target="_blank" class="btn">Acheter sur Amazon</a>
+    </div>
+
+    <!-- Produit 2 -->
+    <div class="produit">
+      <img src="https://m.media-amazon.com/images/I/61WxS+8JghL._AC_SL1500_.jpg" alt="Enceinte Bluetooth JBL GO 3">
+      <h3>Enceinte Bluetooth JBL GO 3</h3>
+      <p>Petite, puissante, étanche – Son JBL Pro portable.</p>
+      <a href="https://www.amazon.ca/dp/B08FB2KV3Q?tag=oc2-20" target="_blank" class="btn">Acheter sur Amazon</a>
+    </div>
+
+    <!-- Produit 3 -->
+    <div class="produit">
+      <img src="https://m.media-amazon.com/images/I/61Iz2yy2CKL._AC_SL1500_.jpg" alt="Casque Bluetooth Sony WH-CH520">
+      <h3>Casque Bluetooth Sony WH-CH520</h3>
+      <p>Jusqu’à 50h d’autonomie – Appels et musique sans fil.</p>
+      <a href="https://www.amazon.ca/dp/B0BSVQ4C5V?tag=oc2-20" target="_blank" class="btn">Acheter sur Amazon</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Pour toute question, contactez-nous sur nos réseaux sociaux ci-dessous.</p>
+</section>
+
+<footer>
+  <p class="message-remerciement">Merci de votre visite sur Ma Boutique Express 🌟</p>
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://tiktok.com" target="_blank">TikTok</a>
+    <a href="https://youtube.com" target="_blank">YouTube</a>
+  </div>
+</footer>
+
+<!-- Flèche retour haut -->
+<a href="#accueil" class="scroll-top">⬆️</a>
+
+<script>
+  // Recherche
+  const input = document.getElementById('searchInput');
+  input.addEventListener('keyup', function () {
+    let filter = input.value.toLowerCase();
+    let produits = document.querySelectorAll('.produit');
+    produits.forEach(p => {
+      let text = p.innerText.toLowerCase();
+      p.style.display = text.includes(filter) ? 'block' : 'none';
+    });
+  });
+
+  // Compteur de produits
+  document.getElementById("productCount").textContent =
+    "(" + document.querySelectorAll(".produit").length + ")";
+</script>
+
+</body>
+</html>
